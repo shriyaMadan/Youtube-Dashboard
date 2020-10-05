@@ -26,29 +26,6 @@ app.get('/', function (req, res) {
 
 const key = 'AIzaSyAZHmeCtdm0T_IOGeuG3SdUJ5KuOh7X2xQ';
 
-function get_stats(channelUsername,type, apiKey){
-  if (type=='forUsername'){
-    url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&forUsername='+channelUsername+'&key='+apiKey
-  }
-  if (type=='Id'){
-    url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+channelUsername+'&key='+apiKey
-  }
-axios.get(url)
-  .then(function (response) {
-    // handle success
-    //console.log(response.data.items[0].statistics);
-    return response.data;
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
-  .then(function () {
-
-    // always executed
-  });
-};
-
 app.post('/statPub', function(req, res, next){
   var url  = req.body.channelUrl
   var param = ''
@@ -69,12 +46,30 @@ app.post('/statPub', function(req, res, next){
   } else {
     res.send('invalid url')
   }
-  var stats = get_stats(channelUsername=param,type=typeOfParam, apiKey=key);
-  console.log(stats)
+  //var stats = get_stats(channelUsername=param,type=typeOfParam, apiKey=key);
 
+  if (typeOfParam=='forUsername'){
+    url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&forUsername='+param+'&key='+key
+  }
+  if (typeOfParam=='Id'){
+    url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+param+'&key='+key
+  }
+  axios.get(url)
+    .then(function (response) {
+      // handle success
+      console.log(response.data.items[0].statistics);
+      res.send(response.data.items[0].statistics);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+      res.send(error)
+    })
+    .then(function () {
+      // always executed
+    });
   //console.log(url)
   //console.log(username)
-  res.send()
 })
 
 
