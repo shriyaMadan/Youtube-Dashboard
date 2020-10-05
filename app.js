@@ -24,39 +24,57 @@ app.get('/', function (req, res) {
   res.redirect('/statPub')
 })
 
-axios.get('https://www.googleapis.com/youtube/v3/channels?part=statistics&forUsername=thevenusproject&key=AIzaSyAZHmeCtdm0T_IOGeuG3SdUJ5KuOh7X2xQ')
+const key = 'AIzaSyAZHmeCtdm0T_IOGeuG3SdUJ5KuOh7X2xQ';
+
+function get_stats(channelUsername,type, apiKey){
+  if (type=='forUsername'){
+    url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&forUsername='+channelUsername+'&key='+apiKey
+  }
+  if (type=='Id'){
+    url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+channelUsername+'&key='+apiKey
+  }
+axios.get(url)
   .then(function (response) {
     // handle success
-
-    console.log(response.data.items[0].statistics);
+    //console.log(response.data.items[0].statistics);
+    return response.data;
   })
   .catch(function (error) {
     // handle error
     console.log(error);
   })
   .then(function () {
+
     // always executed
   });
+};
 
 app.post('/statPub', function(req, res, next){
   var url  = req.body.channelUrl
-  var username = ''
+  var param = ''
+  var typeOfParam = ''
   if (url.slice(-1)=='/'){
     url = url.slice(0, url.length-1)
   }
   if (url.indexOf('/c/')!=-1) {
-    username = url.slice((url.indexOf('/c/')+3))
+    param = url.slice((url.indexOf('/c/')+3))
+    typeOfParam = 'forUsername'
   }
   else if (url.indexOf('/channel/')!=-1) {
-    username = url.slice((url.indexOf('/channel/')+9))
+    param = url.slice((url.indexOf('/channel/')+9))
+    typeOfParam = 'Id'
+  } else if(url.indexOf('/user/')!=-1) {
+    param = url.slice((url.indexOf('/user/')+6))
+    typeOfParam = 'forUsername'
   } else {
     res.send('invalid url')
   }
-
+  var stats = get_stats(channelUsername=param,type=typeOfParam, apiKey=key);
+  console.log(stats)
 
   //console.log(url)
   //console.log(username)
-  res.send('')
+  res.send()
 })
 
 
