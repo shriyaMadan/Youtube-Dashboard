@@ -4,7 +4,7 @@ var cookieParser = require('cookie-parser');
 var app = express();
 const port = 3000 || process.env.PORT;
 var https = require('https');
-
+const axios = require('axios').default;
 
 
 
@@ -24,6 +24,20 @@ app.get('/', function (req, res) {
   res.redirect('/statPub')
 })
 
+axios.get('https://www.googleapis.com/youtube/v3/channels?part=statistics&forUsername=thevenusproject&key=AIzaSyAZHmeCtdm0T_IOGeuG3SdUJ5KuOh7X2xQ')
+  .then(function (response) {
+    // handle success
+
+    console.log(response.data.items[0].statistics);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .then(function () {
+    // always executed
+  });
+
 app.post('/statPub', function(req, res, next){
   var url  = req.body.channelUrl
   var username = ''
@@ -38,18 +52,7 @@ app.post('/statPub', function(req, res, next){
   } else {
     res.send('invalid url')
   }
-  let a='';
-  https.get('https://www.googleapis.com/youtube/v3/channels?part=statistics&forUsername=thevenusproject&key=AIzaSyAZHmeCtdm0T_IOGeuG3SdUJ5KuOh7X2xQ', (res) => {
-    //console.log('statusCode:', res.statusCode);
-    //console.log('headers:', res.headers);
-    res.on('data', (d) => {
-    process.stdout.write(d);
-  });
 
-
-  }).on('error', (e) => {
-    console.error('error',e);
-  });
 
   //console.log(url)
   //console.log(username)
