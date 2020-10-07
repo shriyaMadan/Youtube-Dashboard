@@ -4,3 +4,15 @@ body {
   background-color: darkgray;
 }
 
+.heading{
+  font-size: large;
+  line-height: 5vh;
+}
+.finalResult{
+  background-color: white;
+  padding: 20px;
+}
+.channelUrl{
+  line-height: 5vh;
+  width: 50vw;
+}

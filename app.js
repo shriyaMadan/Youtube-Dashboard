@@ -14,7 +14,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/statPub', function(req, res){
-  res.render('statPub.ejs')
+  res.render('statPub', { subsCount: "", videoCount: "", viewCount: "" })
 })
 
 app.get('/', function (req, res) {
@@ -63,7 +63,7 @@ app.post('/statPub', function(req, res, next){
       //var subsHidden = response.data.items[0].statistics.hiddenSubscriberCount;
       var videoCount = response.data.items[0].statistics.videoCount;
 
-      res.render('result', { subsCount: subsCount,videoCount:videoCount, viewCount: viewCount })
+      res.render('statPub', { subsCount: subsCount,videoCount:videoCount, viewCount: viewCount })
       
     })
     .catch(function (error) {

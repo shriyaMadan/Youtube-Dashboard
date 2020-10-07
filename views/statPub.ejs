@@ -7,12 +7,19 @@
 <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
-  <form method="post" target="/statPub">
+  <form method="post" target="">
   <div>
-    <input type="text" name="channelUrl" class="channelUrl">
+    <input type="text" name="channelUrl" class="channelUrl" placeholder="Enter Channel URL">
     <button type="submit" class="btn btn-primary">GO</button>
   </div>
   </form>
-  <div class="result"></div>
+  
+  
+  <div class="finalResult">
+    <h3>Results:</h3>
+    <div class="subsCountHeading heading">Total Number of Subscribers: <%= subsCount %></div>
+    <div class="videoCountHeading heading">Total Videos <%= videoCount %></div>
+    <div class="viewCountHeading heading">Total Views <%= viewCount %></div>
+  </div>
 </body>
 </html>
