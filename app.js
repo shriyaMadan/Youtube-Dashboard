@@ -3,10 +3,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var app = express();
 const port = 3000 || process.env.PORT;
-var https = require('https');
 const axios = require('axios').default;
-
-
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -24,7 +21,11 @@ app.get('/', function (req, res) {
   res.redirect('/statPub')
 })
 
-const key = 'AIzaSyAZHmeCtdm0T_IOGeuG3SdUJ5KuOh7X2xQ';
+app.get('/results',function(req,res){
+  res.render('result.ejs')
+})
+
+const key = '';  //personal 
 
 app.post('/statPub', function(req, res, next){
   var url  = req.body.channelUrl
@@ -56,17 +57,19 @@ app.post('/statPub', function(req, res, next){
   }
   axios.get(url)
     .then(function (response) {
-      // handle success
-      console.log(response.data.items[0].statistics);
+      //console.log(response.data.items[0].statistics);
       res.send(response.data.items[0].statistics);
+
+      var viewCount = response.data.items[0].statistics.viewCount;
+      var subsCount = response.data.items[0].statistics.subscriberCount;
+      var subsHidden = response.data.items[0].statistics.hiddenSubscriberCount;
+      var videoCount = response.data.items[0].statistics.videoCount;
     })
     .catch(function (error) {
-      // handle error
-      console.log(error);
+      console.log(error)
       res.send(error)
     })
     .then(function () {
-      // always executed
     });
   //console.log(url)
   //console.log(username)
