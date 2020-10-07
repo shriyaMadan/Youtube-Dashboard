@@ -21,7 +21,7 @@ app.get('/', function (req, res) {
   res.redirect('/statPub')
 })
 
-app.get('/results',function(req,res){
+app.get('/result',function(req,res){
   res.render('result.ejs')
 })
 
@@ -57,13 +57,14 @@ app.post('/statPub', function(req, res, next){
   }
   axios.get(url)
     .then(function (response) {
-      //console.log(response.data.items[0].statistics);
-      res.send(response.data.items[0].statistics);
-
-      var viewCount = response.data.items[0].statistics.viewCount;
+      //res.send(response.data.items[0].statistics);
       var subsCount = response.data.items[0].statistics.subscriberCount;
-      var subsHidden = response.data.items[0].statistics.hiddenSubscriberCount;
+      var viewCount = response.data.items[0].statistics.viewCount;
+      //var subsHidden = response.data.items[0].statistics.hiddenSubscriberCount;
       var videoCount = response.data.items[0].statistics.videoCount;
+
+      res.render('result', { subsCount: subsCount,videoCount:videoCount, viewCount: viewCount })
+      
     })
     .catch(function (error) {
       console.log(error)
