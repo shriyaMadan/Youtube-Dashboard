@@ -29,7 +29,7 @@ function formatNumber(num) {
   return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
 }
 
-const key = '';  //personal 
+const key = 'AIzaSyAaGcDR7c2gnAxrbITAW4SiC6ezaNKFzBA';  //personal 
 
 app.post('/statPub', function(req, res, next){
   var url  = req.body.channelUrl
