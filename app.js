@@ -2,7 +2,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var app = express();
-const port = 3000 || process.env.PORT;
+var port = 3000 || process.env.PORT;
 const axios = require('axios').default;
 
 app.set('view engine', 'ejs');
