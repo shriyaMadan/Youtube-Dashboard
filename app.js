@@ -21,9 +21,13 @@ app.get('/', function (req, res) {
   res.redirect('/statPub')
 })
 
-app.get('/result',function(req,res){
-  res.render('result.ejs')
-})
+// app.get('/result',function(req,res){
+//   res.render('result.ejs')
+// })
+
+function formatNumber(num) {
+  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+}
 
 const key = '';  //personal 
 
@@ -58,12 +62,12 @@ app.post('/statPub', function(req, res, next){
   axios.get(url)
     .then(function (response) {
       //res.send(response.data.items[0].statistics);
-      var subsCount = response.data.items[0].statistics.subscriberCount;
-      var viewCount = response.data.items[0].statistics.viewCount;
+      var subsCount = formatNumber(response.data.items[0].statistics.subscriberCount)
+      var viewCount = formatNumber(response.data.items[0].statistics.viewCount)
       //var subsHidden = response.data.items[0].statistics.hiddenSubscriberCount;
-      var videoCount = response.data.items[0].statistics.videoCount;
+      var videoCount = formatNumber(response.data.items[0].statistics.videoCount)
 
-      res.render('statPub', { subsCount: subsCount,videoCount:videoCount, viewCount: viewCount })
+      res.render('statPub', { subsCount: subsCount, videoCount: videoCount, viewCount: viewCount })
       
     })
     .catch(function (error) {

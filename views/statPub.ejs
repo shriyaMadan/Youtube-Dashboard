@@ -7,19 +7,21 @@
 <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
-  <form method="post" target="">
+  <form method="post" target="" id='form'>
   <div>
     <input type="text" name="channelUrl" class="channelUrl" placeholder="Enter Channel URL">
     <button type="submit" class="btn btn-primary">GO</button>
   </div>
   </form>
   
-  
   <div class="finalResult">
     <h3>Results:</h3>
     <div class="subsCountHeading heading">Total Number of Subscribers: <%= subsCount %></div>
-    <div class="videoCountHeading heading">Total Videos <%= videoCount %></div>
-    <div class="viewCountHeading heading">Total Views <%= viewCount %></div>
+    <div class="videoCountHeading heading">Total Videos: <%= videoCount %></div>
+    <div class="viewCountHeading heading">Total Views: <%= viewCount %></div>
   </div>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="javascripts/index.js"></script>
 </body>
 </html>
