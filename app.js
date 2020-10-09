@@ -22,15 +22,30 @@ app.get('/', function (req, res) {
   res.redirect('/statPub')
 })
 
-// app.get('/result',function(req,res){
-//   res.render('result.ejs')
-// })
+const key = '';  //personal
+
+app.post('/searchChannel', function(req, res, next){
+  var query = req.body.searchChannel
+  var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q='+'query+&type=channel&key='+key;
+  axios.get(url)
+    .then(function (response) {
+      console.log(response)
+      res.send(response.data)
+    })
+    .catch(function (error) {
+      console.log(error)
+      res.send(error)
+    })
+    .then(function () {
+    });
+})
 
 function formatNumber(num) {
   return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
 }
 
-const key = 'AIzaSyAaGcDR7c2gnAxrbITAW4SiC6ezaNKFzBA';  //personal 
+
+const key = '';  //personal 
 
 app.post('/statPub', function(req, res, next){
   var url  = req.body.channelUrl
@@ -63,6 +78,7 @@ app.post('/statPub', function(req, res, next){
   axios.get(url)
     .then(function (response) {
       //res.send(response.data.items[0].statistics);
+
       var subsCount = formatNumber(response.data.items[0].statistics.subscriberCount)
       var viewCount = formatNumber(response.data.items[0].statistics.viewCount)
       //var subsHidden = response.data.items[0].statistics.hiddenSubscriberCount;
@@ -82,8 +98,8 @@ app.post('/statPub', function(req, res, next){
 })
 
 
-
-
+//get stats of videos
+//https://www.googleapis.com/youtube/v3/videos?part=statistics&id=Ks-_Mh1QhMc%2[more videos]&key=[YOUR_API_KEY]
 
 app.listen(port,()=>{
   console.log('listening on',port);
