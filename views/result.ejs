@@ -5,16 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Youtube Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/stylesheets/style2.css">
+    <link rel="stylesheet" href="/stylesheets/searchresults.css">
 </head>
 
 <body>
-    <h3>Results:</h3>
-        <div class="finalResult">
-            <div class="subsCountHeading">Total Number of Subscribers: <%= subsCount %></div>
-            <div class="videoCountHeading">Total Videos <%= videoCount %></div>
-            <div class="viewCountHeading">Total Views <%= viewCount %></div>
-        </div>
+
+    <h3>Search Results:</h3>
+    <p>Showing <%= data.pageInfo.resultsPerPage %> out of <%= data.pageInfo.totalResults %> results</p>
+    <div class="list-group">
+    <% listOfItems.forEach(function(item){ %>
+      <a href="https://www.youtube.com/channel/<%=item.snippet.channelId %>" class="list-group-item list-group-item-action">
+        <%=item.snippet.channelTitle %>
+      </a>
+    <% }) %>
+
+    </div>
+
+
 
 </body>
 
