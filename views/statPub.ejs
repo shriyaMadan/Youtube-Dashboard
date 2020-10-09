@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
+
   <form method="post" action="/searchChannel" class="search" >
     <input type="text" name="searchChannel" placeholder="channel name">
     <button type="submit" target="_self" class="btn btn-primary">Search</button>
@@ -28,5 +29,9 @@
     <div class="viewCountHeading heading">Total Views <%= viewCount %></div>
   </div>
   <% } %>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="javascripts/index.js"></script>
+  
 </body>
 </html>
