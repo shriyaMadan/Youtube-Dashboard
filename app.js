@@ -26,11 +26,12 @@ const key = '';  //personal
 
 app.post('/searchChannel', function(req, res, next){
   var query = req.body.searchChannel
-  var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q='+'query+&type=channel&key='+key;
+  var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q='+query+'&type=channel&key='+key;
   axios.get(url)
     .then(function (response) {
-      console.log(response)
-      res.send(response.data)
+      console.log(response.data)
+      //res.send(response.data)
+      res.render('result', {data: response.data, listOfItems: response.data.items })
     })
     .catch(function (error) {
       console.log(error)
@@ -85,7 +86,7 @@ app.post('/statPub', function(req, res, next){
       var videoCount = formatNumber(response.data.items[0].statistics.videoCount)
 
       res.render('statPub', { subsCount: subsCount, videoCount: videoCount, viewCount: viewCount })
-      
+
     })
     .catch(function (error) {
       console.log(error)
