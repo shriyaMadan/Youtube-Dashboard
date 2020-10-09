@@ -1,8 +1,9 @@
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var http = require('http');
 var app = express();
-const port = 3000 || process.env.PORT;
+var port = process.env.PORT|| 3000;
 const axios = require('axios').default;
 
 app.set('view engine', 'ejs');
@@ -42,6 +43,9 @@ app.post('/searchChannel', function(req, res, next){
 function formatNumber(num) {
   return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
 }
+
+
+const key = '';  //personal 
 
 app.post('/statPub', function(req, res, next){
   var url  = req.body.channelUrl
