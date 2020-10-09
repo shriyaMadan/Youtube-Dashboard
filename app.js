@@ -14,7 +14,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/statPub', function(req, res){
-  res.render('statPub', { subsCount: "", videoCount: "", viewCount: "" })
+  res.render('statPub', {subsCount: "", videoCount: "", viewCount: "" })
 })
 
 app.get('/', function (req, res) {
@@ -25,7 +25,7 @@ app.get('/result',function(req,res){
   res.render('result.ejs')
 })
 
-const key = '';  //personal 
+const key = '';  //personal
 
 app.post('/statPub', function(req, res, next){
   var url  = req.body.channelUrl
@@ -64,7 +64,7 @@ app.post('/statPub', function(req, res, next){
       var videoCount = response.data.items[0].statistics.videoCount;
 
       res.render('statPub', { subsCount: subsCount,videoCount:videoCount, viewCount: viewCount })
-      
+
     })
     .catch(function (error) {
       console.log(error)
@@ -77,8 +77,8 @@ app.post('/statPub', function(req, res, next){
 })
 
 
-
-
+//get stats of videos
+//https://www.googleapis.com/youtube/v3/videos?part=statistics&id=Ks-_Mh1QhMc%2[more videos]&key=[YOUR_API_KEY]
 
 app.listen(port,()=>{
   console.log('listening on',port);
