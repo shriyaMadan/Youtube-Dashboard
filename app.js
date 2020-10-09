@@ -27,6 +27,22 @@ app.get('/result',function(req,res){
 
 const key = '';  //personal
 
+app.post('/searchChannel', function(req, res, next){
+  var query = req.body.searchChannel
+  var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q='+'query+&type=channel&key='+key;
+  axios.get(url)
+    .then(function (response) {
+      console.log(response)
+      res.send(response.data)
+    })
+    .catch(function (error) {
+      console.log(error)
+      res.send(error)
+    })
+    .then(function () {
+    });
+})
+
 app.post('/statPub', function(req, res, next){
   var url  = req.body.channelUrl
   var param = ''

@@ -7,16 +7,16 @@
 <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
-  <form method="post" class="search" target="">
+  <form method="post" action="/searchChannel" class="search" >
     <input type="text" name="searchChannel" placeholder="channel name">
-    <button type="submit" class="btn btn-primary">Search</button>
+    <button type="submit" target="_self" class="btn btn-primary">Search</button>
   </form>
 
 
-  <form method="post" target="">
+  <form method="post" action="/statPub">
   <div>
     <input type="text" name="channelUrl" class="channelUrl" placeholder="Enter Channel URL">
-    <button type="submit" class="btn btn-primary">GO</button>
+    <button type="submit" target="_self" class="btn btn-primary">GO</button>
   </div>
   </form>
 
