@@ -22,14 +22,14 @@ app.get('/', function (req, res) {
   res.redirect('/statPub')
 })
 
-const key = '';  //personal
+const key = 'AIzaSyDR9QZNu-LCehvSVRze2qBvfdhSOcNkiZg';  //personal
 
 app.post('/searchChannel', function(req, res, next){
   var query = req.body.searchChannel
   var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q='+query+'&type=channel&key='+key;
   axios.get(url)
     .then(function (response) {
-      console.log(response.data)
+      //console.log(response.data)
       //res.send(response.data)
       res.render('result', {data: response.data, listOfItems: response.data.items })
     })
@@ -45,8 +45,6 @@ function formatNumber(num) {
   return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
 }
 
-
-const key = '';  //personal 
 
 app.post('/statPub', function(req, res, next){
   var url  = req.body.channelUrl
