@@ -24,14 +24,18 @@ app.get('/', function (req, res) {
 
 const key = '';  //personal
 
+app.get('/publicStat/:channelID', function(req, res, next){
+
+})
+
 app.post('/searchChannel', function(req, res, next){
   var query = req.body.searchChannel
-  var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q='+query+'&type=channel&key='+key;
+  var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q='+query+'&type=channel&key='+key
   axios.get(url)
     .then(function (response) {
       console.log(response.data)
-      //res.send(response.data)
-      res.render('result', {data: response.data, listOfItems: response.data.items })
+      res.send(response.data)
+      //res.render('result', {data: response.data, listOfItems: response.data.items })
     })
     .catch(function (error) {
       console.log(error)
