@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var http = require('http');
+var helmet = require('helmet')
 var app = express();
 var port = process.env.PORT|| 3000;
 const axios = require('axios').default;
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(helmet());
 
 app.get('/statPub', function(req, res){
   res.render('statPub', { subsCount: "", videoCount: "", viewCount: "" })
