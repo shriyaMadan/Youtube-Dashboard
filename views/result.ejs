@@ -14,7 +14,7 @@
     <p>Showing <%= data.pageInfo.resultsPerPage %> out of <%= data.pageInfo.totalResults %> results</p>
     <div class="list-group">
     <% listOfItems.forEach(function(item){ %>
-      <a href="https://www.youtube.com/channel/<%=item.snippet.channelId %>" class="list-group-item list-group-item-action">
+      <a href="/publicStat/<%=item.snippet.channelId %>" class="list-group-item list-group-item-action">
         <%=item.snippet.channelTitle %>
       </a>
     <% }) %>

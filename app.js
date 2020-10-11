@@ -22,10 +22,25 @@ app.get('/', function (req, res) {
   res.redirect('/statPub')
 })
 
-const key = 'AIzaSyDR9QZNu-LCehvSVRze2qBvfdhSOcNkiZg';  //personal
+const key = '';  //personal
 
 app.get('/publicStat/:channelID', function(req, res, next){
-
+  var channelID = req.params.channelID
+  var url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+channelID+'&key='+key;
+  axios.get(url)
+    .then(function (response) {
+      //res.send(response.data.items[0].statistics);
+      var subsCount = formatNumber(response.data.items[0].statistics.subscriberCount)
+      var viewCount = formatNumber(response.data.items[0].statistics.viewCount)
+      //var subsHidden = response.data.items[0].statistics.hiddenSubscriberCount;
+      var videoCount = formatNumber(response.data.items[0].statistics.videoCount)
+      res.render('statPub', { subsCount: subsCount, videoCount: videoCount, viewCount: viewCount })
+    })
+    .catch(function (error) {
+      console.log(error)
+      res.send(error)
+    })
+    .then(function () { });
 })
 
 app.post('/searchChannel', function(req, res, next){
@@ -33,15 +48,9 @@ app.post('/searchChannel', function(req, res, next){
   var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q='+query+'&type=channel&key='+key
   axios.get(url)
     .then(function (response) {
-<<<<<<< HEAD
-      console.log(response.data)
-      res.send(response.data)
-      //res.render('result', {data: response.data, listOfItems: response.data.items })
-=======
       //console.log(response.data)
       //res.send(response.data)
       res.render('result', {data: response.data, listOfItems: response.data.items })
->>>>>>> a3f422fbd74bcd58f7703deaf5c84cb43f2d8ea4
     })
     .catch(function (error) {
       console.log(error)
@@ -105,10 +114,6 @@ app.post('/statPub', function(req, res, next){
   //console.log(url)
   //console.log(username)
 })
-
-
-//get stats of videos
-//https://www.googleapis.com/youtube/v3/videos?part=statistics&id=Ks-_Mh1QhMc%2[more videos]&key=[YOUR_API_KEY]
 
 app.listen(port,()=>{
   console.log('listening on',port);
