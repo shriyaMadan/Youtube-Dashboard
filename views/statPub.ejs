@@ -9,14 +9,14 @@
 <body>
 
   <form method="post" action="/searchChannel" class="search" >
-    <input type="text" name="searchChannel" placeholder="channel name">
+    <input type="text" name="searchChannel" class="channel-name" placeholder="Enter Channel Name">
     <button type="submit" target="_self" class="btn btn-primary">Search</button>
   </form>
 
 
   <form method="post" action="/statPub">
   <div>
-    <input type="text" name="channelUrl" class="channelUrl" placeholder="Enter Channel URL">
+    <input type="text" name="channelUrl" class="channel-url" placeholder="Enter Channel URL">
     <button type="submit" target="_self" class="btn btn-primary">GO</button>
   </div>
   </form>
@@ -25,8 +25,8 @@
   <div class="finalResult">
     <h3>Results:</h3>
     <div class="subsCountHeading heading">Total Number of Subscribers: <%= subsCount %></div>
-    <div class="videoCountHeading heading">Total Videos <%= videoCount %></div>
-    <div class="viewCountHeading heading">Total Views <%= viewCount %></div>
+    <div class="videoCountHeading heading">Total Videos: <%= videoCount %></div>
+    <div class="viewCountHeading heading">Total Views: <%= viewCount %></div>
   </div>
   <% } %>
   

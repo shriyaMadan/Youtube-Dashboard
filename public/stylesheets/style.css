@@ -12,7 +12,8 @@ body {
   background-color: white;
   padding: 20px;
 }
-.channelUrl{
-  line-height: 5vh;
-  width: 50vw;
+.channel-url, .channel-name{
+  line-height: 27px;
+  width: 50%;
+  outline: none;
 }
