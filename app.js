@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var http = require('http');
+var helmet = require('helmet')
 var app = express();
 var port = process.env.PORT|| 3000;
 const axios = require('axios').default;
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(helmet());
 
 app.get('/statPub', function(req, res){
   res.render('statPub', { subsCount: "", videoCount: "", viewCount: "" })
@@ -22,11 +24,30 @@ app.get('/', function (req, res) {
   res.redirect('/statPub')
 })
 
-const key = 'AIzaSyDR9QZNu-LCehvSVRze2qBvfdhSOcNkiZg';  //personal
+const key = '';  //personal
+
+app.get('/publicStat/:channelID', function(req, res, next){
+  var channelID = req.params.channelID
+  var url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+channelID+'&key='+key;
+  axios.get(url)
+    .then(function (response) {
+      //res.send(response.data.items[0].statistics);
+      var subsCount = formatNumber(response.data.items[0].statistics.subscriberCount)
+      var viewCount = formatNumber(response.data.items[0].statistics.viewCount)
+      //var subsHidden = response.data.items[0].statistics.hiddenSubscriberCount;
+      var videoCount = formatNumber(response.data.items[0].statistics.videoCount)
+      res.render('statPub', { subsCount: subsCount, videoCount: videoCount, viewCount: viewCount })
+    })
+    .catch(function (error) {
+      console.log(error)
+      res.send(error)
+    })
+    .then(function () { });
+})
 
 app.post('/searchChannel', function(req, res, next){
   var query = req.body.searchChannel
-  var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q='+query+'&type=channel&key='+key;
+  var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q='+query+'&type=channel&key='+key
   axios.get(url)
     .then(function (response) {
       //console.log(response.data)
@@ -95,10 +116,6 @@ app.post('/statPub', function(req, res, next){
   //console.log(url)
   //console.log(username)
 })
-
-
-//get stats of videos
-//https://www.googleapis.com/youtube/v3/videos?part=statistics&id=Ks-_Mh1QhMc%2[more videos]&key=[YOUR_API_KEY]
 
 app.listen(port,()=>{
   console.log('listening on',port);
