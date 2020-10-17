@@ -5,6 +5,10 @@ var http = require('http');
 var helmet = require('helmet')
 var app = express();
 var port = process.env.PORT|| 3000;
+require('dotenv').config();
+
+const key= process.env.API_KEY;
+
 const axios = require('axios').default;
 
 app.set('view engine', 'ejs');
@@ -24,7 +28,6 @@ app.get('/', function (req, res) {
   res.redirect('/statPub')
 })
 
-const key = '';  //personal
 
 app.get('/publicStat/:channelID', function(req, res, next){
   var channelID = req.params.channelID
