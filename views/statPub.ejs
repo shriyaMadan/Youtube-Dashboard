@@ -7,9 +7,20 @@
 <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
-
   <form method="post" action="/searchChannel" class="search" >
     <input type="text" name="searchChannel" class="channel-name" placeholder="Enter Channel Name">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">Results per page</label>
+      </div>
+      <select class="custom-select" name="noOfResults" id="ResultsPerPageInput">
+        <option value="10">10</option>
+        <option value="25" selected>25</option>
+        <option value="50">50</option>
+      </select>
+    </div>
+    <input type="text" name="nextPage" hidden value="">
+    <input type="text" name="prevPage" hidden value="">
     <button type="submit" target="_self" class="btn btn-primary">Search</button>
   </form>
 
@@ -17,6 +28,7 @@
   <form method="post" action="/statPub">
   <div>
     <input type="text" name="channelUrl" class="channel-url" placeholder="Enter Channel URL">
+
     <button type="submit" target="_self" class="btn btn-primary">GO</button>
   </div>
   </form>
@@ -29,9 +41,9 @@
     <div class="viewCountHeading heading">Total Views: <%= viewCount %></div>
   </div>
   <% } %>
-  
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="javascripts/index.js"></script>
-  
+
 </body>
 </html>

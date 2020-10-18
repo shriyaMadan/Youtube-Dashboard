@@ -17,3 +17,10 @@ body {
   width: 50%;
   outline: none;
 }
+.search{
+  width: 50%;
+  line-height: 27px;
+}
+#ResultsPerPageInput{
+  width: auto;
+}

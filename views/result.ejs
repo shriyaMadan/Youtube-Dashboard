@@ -11,7 +11,36 @@
 <body>
 
     <h3>Search Results:</h3>
-    <p>Showing <%= data.pageInfo.resultsPerPage %> out of <%= data.pageInfo.totalResults %> results</p>
+
+    <% if (data.prevPageToken) { %>
+      <form method="post" action="/searchChannel" class="search" >
+        <input type="text" name="searchChannel" class="channel-name" placeholder="Enter Channel Name" hidden value="<%=query%>">
+        <input type="text" name="noOfResults" hidden value="<%=numResults%>">
+        <input type="text" name="prevPage" hidden value="<%=data.prevPageToken%>">
+        <button type="submit" target="_self" class="btn btn-primary">Previous Page</button>
+      </form>
+    <% } %>
+    <p>Showing <%= data.pageInfo.resultsPerPage %> results at once</p>
+    <% if (data.nextPageToken) { %>
+      <form method="post" action="/searchChannel" class="search" >
+        <input type="text" name="searchChannel" class="channel-name" placeholder="Enter Channel Name" hidden value="<%=query%>">
+        <input type="text" name="noOfResults" hidden value="<%=numResults%>">
+        <input type="text" name="nextPage" hidden value="<%=data.nextPageToken%>">
+        <button type="submit" target="_self" class="btn btn-primary">Next Page</button>
+      </form>
+    <% } %>
+  <!--
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">Results per page</label>
+      </div>
+      <select class="custom-select" name="noOfResults" id="ResultsPerPageInput">
+        <option value="10">10</option>
+        <option value="25" selected>25</option>
+        <option value="50">50</option>
+      </select>
+    </div>
+  -->
     <div class="list-group">
     <% listOfItems.forEach(function(item){ %>
       <a href="/publicStat/<%=item.snippet.channelId %>" class="list-group-item list-group-item-action">
