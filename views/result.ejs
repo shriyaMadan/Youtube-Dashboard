@@ -29,18 +29,7 @@
         <button type="submit" target="_self" class="btn btn-primary">Next Page</button>
       </form>
     <% } %>
-  <!--
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <label class="input-group-text" for="inputGroupSelect01">Results per page</label>
-      </div>
-      <select class="custom-select" name="noOfResults" id="ResultsPerPageInput">
-        <option value="10">10</option>
-        <option value="25" selected>25</option>
-        <option value="50">50</option>
-      </select>
-    </div>
-  -->
+ 
     <div class="list-group">
     <% listOfItems.forEach(function(item){ %>
       <a href="/publicStat/<%=item.snippet.channelId %>" class="list-group-item list-group-item-action">
@@ -50,8 +39,5 @@
 
     </div>
 
-
-
 </body>
-
 </html>

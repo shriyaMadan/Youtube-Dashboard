@@ -1,26 +1,30 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: darkgray;
+  background-color: #F8F8FF;
 }
 
 .heading{
   font-size: large;
   line-height: 5vh;
 }
+
 .finalResult{
   background-color: white;
   padding: 20px;
 }
-.channel-url, .channel-name{
+
+.channel-url, .channel-name {
   line-height: 27px;
   width: 50%;
   outline: none;
 }
+
 .search{
-  width: 50%;
+  margin: 20px;
   line-height: 27px;
 }
+
 #ResultsPerPageInput{
   width: auto;
 }
