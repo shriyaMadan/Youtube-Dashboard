@@ -40,4 +40,13 @@ This project is deployed in *Heroku*.
 
 ---
 
+## Future Scope of this Project:
+* Creating option of sign up in Youtube Account
+* Viewing statistics of our own history
+* Adding feature of a graphical representation of any channel's monthly/weekly views
+
+#### Kindly refer to future scopes for contribution
+
+---
+
 Feel free to contribute :smile:
