@@ -1,6 +1,11 @@
-body{
+body {
   width: 80%;
   margin-top: 10px;
   margin-bottom: 5px;
-  margin: auto; 
+  margin: auto;
+}
+
+.channel-thumbnail {
+  width: 50px;
+  height: auto;
 }
