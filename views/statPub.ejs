@@ -1,55 +1,78 @@
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Youtube Dashboard</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="/stylesheets/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <h2 class="text-center text-danger">Youtube Dashboard</h2>
-  <div class="text-center font-italic">Enter Channel Name or URL to see the stats</div>
-
-  <form method="post" action="/searchChannel" class="search" >
-    
-    <input type="text" name="searchChannel" class="channel-name my-2" placeholder="Enter Channel Name">
-    <button type="submit" target="_self" class="btn btn-danger">Search</button>
-
-    <div class="input-group" style= "width: 50%">
-      <div class="input-group-prepend">
-        <label class="input-group-text" for="inputGroupSelect01">Results per page</label>
-      </div>
-      <select class="custom-select" name="noOfResults" id="ResultsPerPageInput">
-        <option value="10">10</option>
-        <option value="25" selected>25</option>
-        <option value="50">50</option>
-      </select>
+    <title>Youtube Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h2 class="text-center text-danger">Youtube Dashboard</h2>
+    <div class="text-center font-italic">
+      Enter Channel Name or URL to see the stats
     </div>
 
-    <input type="text" name="nextPage" hidden value="">
-    <input type="text" name="prevPage" hidden value="">
+    <form method="post" action="/searchChannel" class="search">
+      <input
+        type="text"
+        name="searchChannel"
+        class="channel-name my-2"
+        placeholder="Enter Channel Name"
+      />
+      <button type="submit" target="_self" class="btn btn-danger">
+        Search
+      </button>
 
-    
-  </form>
-  <h5 class="mx-3">OR</h5>
+      <div class="input-group" style="width: 50%">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01"
+            >Results per page</label
+          >
+        </div>
+        <select
+          class="custom-select"
+          name="noOfResults"
+          id="ResultsPerPageInput"
+        >
+          <option value="10">10</option>
+          <option value="25" selected>25</option>
+          <option value="50">50</option>
+        </select>
+      </div>
 
-  <form method="post" action="/statPub" class="search">
-    <input type="text" name="channelUrl" class="channel-url" placeholder="Enter Channel URL">
-    <button type="submit" target="_self" class="btn btn-danger">GO</button>
-  </form>
+      <input type="text" name="nextPage" hidden value="" />
+      <input type="text" name="prevPage" hidden value="" />
+    </form>
+    <h5 class="mx-3">OR</h5>
 
-  <% if ( subsCount!="" || videoCount!="" || viewCount!="" ) { %>
-  <div class="finalResult">
-    <h3>Results:</h3>
-    <div class="subsCountHeading heading">Total Number of Subscribers: <%= subsCount %></div>
-    <div class="videoCountHeading heading">Total Videos: <%= videoCount %></div>
-    <div class="viewCountHeading heading">Total Views: <%= viewCount %></div>
-  </div>
-  <% } %>
+    <form method="post" action="/statPub" class="search">
+      <input
+        type="text"
+        name="channelUrl"
+        class="channel-url"
+        placeholder="Enter Channel URL"
+      />
+      <button type="submit" target="_self" class="btn btn-danger">GO</button>
+    </form>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="javascripts/index.js"></script>
+    <% if ( subsCount!="" || videoCount!="" || viewCount!="" ) { %>
+    <div class="finalResult">
+      <h3>Results:</h3>
+      <div class="subsCountHeading heading">
+        Total Number of Subscribers: <%= subsCount %>
+      </div>
+      <div class="videoCountHeading heading">
+        Total Videos: <%= videoCount %>
+      </div>
+      <div class="viewCountHeading heading">Total Views: <%= viewCount %></div>
+    </div>
+    <% } %>
 
-</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="javascripts/index.js"></script>
+  </body>
 </html>
