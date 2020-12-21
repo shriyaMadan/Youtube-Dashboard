@@ -1,30 +1,40 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #F8F8FF;
+  background-color: #f8f8ff;
 }
 
-.heading{
+.heading {
   font-size: large;
   line-height: 5vh;
 }
 
-.finalResult{
+.finalResult {
   background-color: white;
   padding: 20px;
 }
 
-.channel-url, .channel-name {
+.channel-url,
+.channel-name {
   line-height: 27px;
   width: 50%;
   outline: none;
 }
 
-.search{
+.search {
   margin: 20px;
   line-height: 27px;
 }
 
-#ResultsPerPageInput{
+#ResultsPerPageInput {
   width: auto;
+}
+
+.channel-details {
+  display: flex;
+  align-items: center;
+}
+
+.channel-detail-name {
+  margin: 0px 15px;
 }
