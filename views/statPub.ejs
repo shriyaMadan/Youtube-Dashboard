@@ -62,6 +62,14 @@
     <% if ( subsCount!="" || videoCount!="" || viewCount!="" ) { %>
     <div class="finalResult">
       <h3>Results:</h3>
+      <div class="channel-details">
+        <img
+          src="<%= channelThumbnailURL %> "
+          alt="channel thumbnail url"
+          class="channel-thumbnail"
+        />
+        <h1 class="channel-detail-name"><%= channelName %></h1>
+      </div>
       <div class="subsCountHeading heading">
         Total Number of Subscribers: <%= subsCount %>
       </div>

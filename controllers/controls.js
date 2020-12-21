@@ -9,14 +9,17 @@ exports.statPubGET = function (req, res) {
 exports.publicStatChannelID_GET = function (req, res, next) {
   var channelID = req.params.channelID;
   var url =
-    "https://www.googleapis.com/youtube/v3/channels?part=statistics&id=" +
+    "https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&id=" +
     channelID +
     "&key=" +
     key;
   axios
     .get(url)
     .then(function (response) {
-      //res.send(response.data.items[0].statistics);
+      // res.send(response.data.items[0]);
+      var channelName = response.data.items[0].snippet.title;
+      var channelThumbnailURL =
+        response.data.items[0].snippet.thumbnails.default.url;
       var subsCount = formatNumber(
         response.data.items[0].statistics.subscriberCount
       );
@@ -26,9 +29,11 @@ exports.publicStatChannelID_GET = function (req, res, next) {
         response.data.items[0].statistics.videoCount
       );
       res.render("statPub", {
-        subsCount: subsCount,
-        videoCount: videoCount,
-        viewCount: viewCount,
+        subsCount,
+        videoCount,
+        viewCount,
+        channelName,
+        channelThumbnailURL,
       });
     })
     .catch(function (error) {
@@ -65,14 +70,14 @@ exports.statPubPOST = function (req, res, next) {
 
   if (typeOfParam == "forUsername") {
     url =
-      "https://www.googleapis.com/youtube/v3/channels?part=statistics&forUsername=" +
+      "https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&forUsername=" +
       param +
       "&key=" +
       key;
   }
   if (typeOfParam == "Id") {
     url =
-      "https://www.googleapis.com/youtube/v3/channels?part=statistics&id=" +
+      "https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&id=" +
       param +
       "&key=" +
       key;
@@ -80,7 +85,7 @@ exports.statPubPOST = function (req, res, next) {
   axios
     .get(url)
     .then(function (response) {
-      //res.send(response.data.items[0].statistics);
+      res.send(response.data.items[0].statistics);
 
       var subsCount = formatNumber(
         response.data.items[0].statistics.subscriberCount
