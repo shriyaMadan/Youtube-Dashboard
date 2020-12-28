@@ -23,7 +23,7 @@ exports.statPubGET = function (req, res) {
   service.channels
     .list({ auth: oauth2client, mine: true, part: "snippet, statistics" })
     .then((response) => {
-      console.log(response);
+      // console.log(response);
       return res.render("statPub", {
         channels: response.data.items,
         subsCount: "",
