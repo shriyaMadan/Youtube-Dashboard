@@ -80,6 +80,28 @@
     </div>
     <% } %>
 
+    <% if (subsCount=="" || videoCount=="" || viewCount=="") { %>
+      <% channels.forEach(channel => { %>
+        <h3>Your Channel Results:</h3>
+      <div class="channel-details">
+        <img
+          src="<%= channel.snippet.thumbnails.default.url  %> "
+          alt="channel thumbnail url"
+          class="channel-thumbnail"
+        />
+        <h1 class="channel-detail-name"><%= channel.snippet.title %></h1>
+      </div>
+      <div class="subsCountHeading heading">
+        Total Number of Subscribers: <%= channel.statistics.subscriberCount %>
+      </div>
+      <div class="videoCountHeading heading">
+        Total Videos: <%= videoCount %>
+      </div>
+      <div class="viewCountHeading heading">Total Views: <%= channel.statistics.viewCount %></div>
+    </div>
+        <% }) %>
+    <% } %>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="javascripts/index.js"></script>
   </body>
