@@ -43,6 +43,6 @@ Now you’re ready to use the YouTube API!
 * Viewing statistics of our own history
 * Adding feature of a graphical representation of any channel's monthly/weekly views
 
-#### Kindly refer to future scopes for <a href="https://github.com/bhavesh1129/Youtube-Dashboard/blob/master/Contributing.md">Contribution.</a>
+#### Kindly refer to<a href="https://github.com/bhavesh1129/Youtube-Dashboard/blob/master/Contributing.md">Contributing.md</a> for Contributions of this Project.
 
 Feel free to contribute :smile: and :star: this Repo.
