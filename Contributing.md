@@ -2,7 +2,7 @@
 
 ***This dashboard displays basic information about the channel. The information includes number of subscribers, total views, total videos. You can either search by Channel-name OR by Channel-URL.***
 
-#### PS: The application is under development, it will soon include more features and interesting information.
+#### PS: The application is under development, it will soon include more features and interesting information:warning:.
 
 ---
 ![GitHub custom open for collaboration](https://img.shields.io/badge/Open%20For-Collaboration-brightgreen?style=for-the-badge)
