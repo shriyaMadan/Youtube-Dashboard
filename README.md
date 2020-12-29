@@ -4,7 +4,7 @@ This dashboard displays basic information about the channel. The information inc
 
 #### PS: The application is under development, it will soon include more features and interesting information.
 ---
-### To run this project you will need to generate your own Youtube API KEY.
+### To run this project you will need to generate your own Youtube API KEY:warning:.
 
 ### Creation of Youtube API KEY::boom:
 
@@ -43,6 +43,6 @@ Now you’re ready to use the YouTube API!
 * Viewing statistics of our own history
 * Adding feature of a graphical representation of any channel's monthly/weekly views
 
-#### Kindly refer to<a href="https://github.com/bhavesh1129/Youtube-Dashboard/blob/master/Contributing.md">Contributing.md</a> for Contributions of this Project.
+#### Kindly refer to <a href="https://github.com/bhavesh1129/Youtube-Dashboard/blob/master/Contributing.md">Contributing.md</a> for Contributions of this Project.
 
 Feel free to contribute :smile: and :star: this Repo.
