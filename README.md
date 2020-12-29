@@ -1,12 +1,12 @@
-# Youtube-Dashboard
+# Y<img src="https://www.flaticon.com/svg/static/icons/svg/1383/1383260.svg" width="25px" height="25px"/>uTube Dashboard:man_technologist:
 
 This dashboard displays basic information about the channel. The information includes number of subscribers, total views, total videos. You can either search by Channel-name OR by Channel-URL.
 
-PS: The application is under development, it will soon include more features and interesting information.
+#### PS: The application is under development, it will soon include more features and interesting information.
+---
+### To run this project you will need to generate your own Youtube API KEY.
 
-#### To run this project you will need to generate your own Youtube API KEY.
-
-### Creation of Youtube API KEY:
+### Creation of Youtube API KEY::boom:
 
 1. Follow this link https://console.developers.google.com/project and click on CREATE PROJECT. Make sure you are logged in into your Google Developers Account.
 
@@ -24,7 +24,7 @@ PS: The application is under development, it will soon include more features and
 
 Now you’re ready to use the YouTube API!
 
-### Using Youtube API key to run this project:
+### Using Youtube API key to run this project:cowboy_hat_face:
 
 1. Create a file named ".env".
 2. Create a variable named "API_KEY".
@@ -34,13 +34,11 @@ Now you’re ready to use the YouTube API!
 
 4. Don't forget to save the file.
 
----
-
-This project is deployed in *Heroku*.
+#### This project is deployed in *Heroku*.
 
 ---
 
-## Future Scope of this Project:
+## Future Scope of this Project::thinking::rainbow:
 * Creating option of sign up in Youtube Account
 * Viewing statistics of our own history
 * Adding feature of a graphical representation of any channel's monthly/weekly views
