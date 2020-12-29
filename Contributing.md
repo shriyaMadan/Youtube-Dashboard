@@ -64,14 +64,6 @@ Before you start off with the contribution,
 ---
 
 
-
-
-
-
-
-
-
-
 ## Steps to Contribute in GitHub Repository:pushpin:
 #### To run this project you will need to generate your own Youtube API KEY.
 
@@ -98,7 +90,7 @@ Before you start off with the contribution,
 * Open a terminal and run the following git command:
 
 ```
-git clone "https://github.com/bhavesh1129/Blogger.git"
+git clone "https://github.com/bhavesh1129/Youtube-Dashboard.git"
 ```
 
 ### 3. Navigate to the project directory.⚓
@@ -106,13 +98,13 @@ git clone "https://github.com/bhavesh1129/Blogger.git"
 * Change to the repository directory on your computer (if you are not already there):
 
 ```
-cd Blogger
+cd Youtube-Dashboard
 ```
 
 ### 4. Add a reference to the original repository.:ledger:
 
 ```
-git remote add upstream https://github.com/bhavesh1129-/Blogger.git (URL of the repository)
+git remote add upstream https://github.com/bhavesh1129/Youtube-Dashboard.git (URL of the repository)
 ```
 
 <p align="center">
