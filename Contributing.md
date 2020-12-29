@@ -195,7 +195,7 @@ git push origin <branch-name>
   </a>
 
 * Soon we will be merging all your changes into the master branch of this project. You will get a notification email once the changes have been merged.
-
+---
 ## Future Scope of this Project::thinking::rainbow:
 * Creating option of sign up in Youtube Account
 * Viewing statistics of our own history
