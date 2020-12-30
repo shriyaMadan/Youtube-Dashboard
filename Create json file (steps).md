@@ -1,6 +1,6 @@
-# Steps to create "keys.json" file:
+#Steps to create "keys.json" file:
 
-1. Use https://console.developers.google.com/flows/enableapi?apiid=youtube to create or select a project in the Google Developers Console and automatically turn on the API. Click Continue, then Go to credentials.
+1. Use [this wizard](https://console.developers.google.com/flows/enableapi?apiid=youtube) to create or select a project in the Google Developers Console and automatically turn on the API. Click Continue, then Go to credentials.
 
 2. On the Add credentials to your project page, click the Cancel button.
 
@@ -16,4 +16,4 @@
 
 8. Move the downloaded file to your working directory and rename it "keys.json".
 
-If you are having doubts then check https://support.google.com/cloud/answer/6158849?hl=en too!
+If you are having doubts then check [here](https://support.google.com/cloud/answer/6158849?hl=en) too!
