@@ -1,9 +1,63 @@
 require("dotenv").config();
 const key = process.env.API_KEY;
 const axios = require("axios").default;
+const CONFIG = require("../config");
+const google = require("googleapis").google;
+const jwt = require("jsonwebtoken");
+
+const Oauth2 = google.auth.OAuth2;
 
 exports.statPubGET = function (req, res) {
-  res.render("statPub", { subsCount: "", videoCount: "", viewCount: "" });
+  if (!req.cookies.jwt) {
+    return res.redirect("/");
+  }
+  const oauth2client = new Oauth2(
+    CONFIG.oauth2Credentials.client_id,
+    CONFIG.oauth2Credentials.client_secret,
+    CONFIG.oauth2Credentials.redirect_uris[0]
+  );
+
+  oauth2client.credentials = jwt.verify(req.cookies.jwt, CONFIG.JWTsecret);
+  //   call the youtube api
+  const service = google.youtube("v3");
+  service.channels
+    .list({ auth: oauth2client, mine: true, part: "snippet, statistics" })
+    .then((response) => {
+      // console.log(response);
+      return res.render("statPub", {
+        channels: response.data.items,
+        subsCount: "",
+        videoCount: "",
+        viewCount: "",
+      });
+    });
+  service.subscriptions.list({
+    auth: oauth2client,
+    mine: true,
+    part: "snippet,contentDetails",
+    maxResults: 50,
+  });
+  // res.render("statPub", { subsCount: "", videoCount: "", viewCount: "" });
+};
+
+exports.authCallback = (req, res) => {
+  const oauth2client = new Oauth2(
+    CONFIG.oauth2Credentials.client_id,
+    CONFIG.oauth2Credentials.client_secret,
+    CONFIG.oauth2Credentials.redirect_uris[0]
+  );
+
+  if (req.query.error) {
+    //   user permission not granted
+    return res.redirect("/");
+  }
+  oauth2client.getToken(req.query.code, (err, token) => {
+    if (err) {
+      return res.redirect("/");
+    }
+    res.cookie("jwt", jwt.sign(token, CONFIG.JWTsecret));
+    return res.redirect("/statPub");
+  });
 };
 
 exports.publicStatChannelID_GET = function (req, res, next) {
@@ -44,7 +98,16 @@ exports.publicStatChannelID_GET = function (req, res, next) {
 };
 
 exports.homeGET = function (req, res) {
-  res.redirect("/statPub");
+  const oauth2client = new Oauth2(
+    CONFIG.oauth2Credentials.client_id,
+    CONFIG.oauth2Credentials.client_secret,
+    CONFIG.oauth2Credentials.redirect_uris[0]
+  );
+  const loginLink = oauth2client.generateAuthUrl({
+    access_type: "offline",
+    scope: CONFIG.oauth2Credentials.scopes,
+  });
+  return res.render("index", { loginLink });
 };
 
 exports.statPubPOST = function (req, res, next) {

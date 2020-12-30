@@ -1,10 +1,13 @@
 var express = require("express");
+const CONFIG = require("./config");
 var path = require("path");
+const google = require("googleapis").google;
 var cookieParser = require("cookie-parser");
+const jwt = require("jsonwebtoken");
 var http = require("http");
 // var helmet = require('helmet');
 var app = express();
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 5000;
 
 var indexRouter = require("./routes/index.js");
 require("dotenv").config();
