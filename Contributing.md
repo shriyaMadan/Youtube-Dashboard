@@ -204,19 +204,6 @@ git push origin <branch-name>
 * Viewing statistics of our own history
 * Adding feature of a graphical representation of any channel's monthly/weekly views
 
-## More Contribution Guidelines :guard::page_with_curl:
-
- 1. Issues will be assigned on a first come first serve basis.
- 2. Maximum two active issues can be assigned to a single individual.
- 3. Mention the essential details, like programmming language you want to work in, while asking for issues.
- 4. Make a separate branch for each issue, and use appropriate branch names for the same.
- 5. Write clean and easy to understand code. Avoid copy pasting code, we're strictly against plagiarism! 
- 6. Provide comments wherever necessary.
- 7. Add a README.md to the folders included, explaining the working of the script.
- 8. Add an appropriate screenshot of output or demo in the README.
- 9. Add a "requirements.txt" file that enlists the program requirements, in case dependencies are required.
-10. Perform a self-review before submitting the PR and wait for the mentors to review it and merge.
-
 ### :ribbon: **Please go through the following essential steps for successfully submitting a Pull Request here:** :rocket:
 
 1. Star :star: (Optional, will help you stay up-to-date about the later changes in the base repository) and Fork this repository. :checkered_flag:
@@ -238,23 +225,6 @@ git push origin <branch-name>
 After following these steps in Git CLI (in order), you'll need to go to your GitHub repository in the website to initiate a new Pull Request. Now create a pull request by comparing 'dev_username' branch of your forked repository with 'master' branch of this upstream repository. :confetti_ball:
 
 ***:trophy: After this, project leaders and mentors will review the changes and will merge your PR if they are found good, otherwise we will suggest the required changes.***
-
-## Style Guides for Git Commit Messages:memo:
-
-#### Here's a list of some good to have points, that can add more value to your contribution logs.
-
-- Use the present tense (example: "Add feature" and not "Added feature")
-- Use the imperative mood (example: "Move item to...", instead of "Moves item to...")
-- Limit the first line (also called subject line) to 50 characters or less
-- Capitalize the subject line
-- Separate subject from body with a blank line
-- Do not end the subject line with a period
-- Wrap the body at 72 characters
-- Use the body to explain what, why, vs, and how
-- Reference issues and pull requests liberally after the first line
-
-For more detailed reference to the above points, refer here: [https://chris.beams.io/posts/git-commit/].
-
 
 ### So, what are you waiting for? Begin contributing now! :fire: :rocket:
 
