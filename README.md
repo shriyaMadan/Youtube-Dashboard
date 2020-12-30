@@ -34,6 +34,10 @@ Now you’re ready to use the YouTube API!
 
 4. Don't forget to save the file.
 
+### The next step is to generate file for Oauth credentials:
+   
+- Refer [this](Create_json_file_steps.md) to follow up
+
 ---
 
 This project is deployed in *Heroku*.
