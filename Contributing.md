@@ -111,7 +111,7 @@ git remote add upstream https://github.com/bhavesh1129/Youtube-Dashboard.git (UR
 ```
 
 <p align="center">
-    <img src="https://github.com/bhavesh1129/Youtube-Dashboard/blob/master/Contributing%20File%20Images/%C3%BApstrea.PNG">
+    <img src="https://github.com/bhavesh1129/Youtube-Dashboard/blob/master/Contributing%20File%20Images/upstream.PNG">
   </a>
   
 ### 5. See latest changes to the repository using following command::arrow_left:
