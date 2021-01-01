@@ -54,7 +54,8 @@ Now you’re ready to use the YouTube API!
 
 7. Click the file_download (Download JSON) button to the right of the client ID.
 
-8. Move the downloaded file to your working directory and rename it "keys.json".
+8. Open the downloaded file and add it to your .env file as
+<pre> OAUTH_CLIENT_KEYS = contents_of_your_downloaded_json </pre>
 
 
 If you are having doubts then check [here](https://support.google.com/cloud/answer/6158849?hl=en) too!
