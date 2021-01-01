@@ -1,0 +1,232 @@
+# Y<img src="https://www.flaticon.com/svg/static/icons/svg/1383/1383260.svg" width="25px" height="25px"/>uTube Dashboard:man_technologist:
+
+***This dashboard displays basic information about the channel. The information includes number of subscribers, total views, total videos. You can either search by Channel-name OR by Channel-URL.***
+
+#### PS: The application is under development, it will soon include more features and interesting information:warning:.
+
+---
+
+🎉***First off, thanks for taking the time out of your schedule and deciding to contribute here!*** 👍
+
+* This repository is open for all contributions, and is accepting contributions under under [DWOC (Devscript Winter of Code)](https://devscript.tech/) by [Devscript, India](https://devscript.tech/woc/). Any kind of updation, addition, modification and other valuable contributions are welcome.
+
+* In case you're new to open source and contributing, be sure to read about [GitHub](https://guides.github.com/activities/hello-world/#:~:text=GitHub%20is%20a%20code%20hosting,%2C%20commits%2C%20and%20Pull%20Requests.), [GitHub Guide](https://guides.github.com/), [GitHub Open Source](https://github.com/open-source), and you are encouraged to check [OpenSource Guide](http://opensource.guide/).
+
+* Please feel free to open new issues and pull requests, wherever needed.
+
+* Every contribution counts, and will go a long way towards betterment of the code and/or its related files.
+
+## Assistance to get started:page_facing_up:
+
+If you're new to contributing and have no idea about working with repositories, be sure to check [GitHub docs to getting started](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github) from GitHub may also be helpful to refer.
+
+## Essential Guidelines for contribution against Devscript Winter of Code::bookmark_tabs:
+
+Before you start off with the contribution, 
+
+:bulb: Be sure to look into, and adhere to these points: 
+
+* First comment on the opened issues on which you want to work as "Can I take up the work ?","I would like to work on this!",etc.:loudspeaker:
+
+* Wait for ***approval***. After it's assigned to you then move on further, fork the repository and clone it (if haven't yet done) and start your work according to the guidelines given in the [README.md](https://github.com/bhavesh1129/Youtube-Dashboard/blob/master/README.md) of repository.
+ 
+## Creation of Youtube API KEY::boom:
+
+1. Follow this link https://console.developers.google.com/project and click on CREATE PROJECT. Make sure you are logged in into your Google Developers Account.
+
+2. Fill in the name you want to assign to your project.
+
+3. On the top left corner, click the Google APIs link and then follow the link option dubbed “YouTube DATA API” below the YouTube API’s icon.
+
+4. Now select the “ENABLE” button which manifests after you click the YouTube DATA API link.
+
+5. Now click the button on the far right with the “Go to Credentials” phrase.
+
+6. On the first select option displayed on this page, choose the YouTube Data API v3, and then the Web server (such as node js. Tomcat) on the second option. For the third option, choose public data. Lastly, click the button with “what credentials do I need”.
+
+7. After hitting the “What credentials do I need” button, Google will create your new project, and you can now copy your API Key from this page.
+
+#### - Now you’re ready to use the YouTube API
+
+## Using Youtube API key to run this project::cowboy_hat_face:
+
+1. Create a file named ".env".
+2. Create a variable named "API_KEY".
+3. Insert the key you generated in this variable.
+
+<pre> API_KEY = 'Your API key here' </pre>
+
+4. Don't forget to save the file.
+
+#### - This project is deployed in *Heroku*.
+
+---
+
+
+## Steps to Contribute in GitHub Repository:pushpin:
+#### To run this project you will need to generate your own Youtube API KEY.
+
+***If you don't have git on your machine, [install it](https://help.github.com/articles/set-up-git/).***
+
+### 1. Fork this repository 🚀
+
+* Fork this repository by clicking on the fork button on the top of this page.
+<p align="center">
+    <img src="https://raw.githubusercontent.com/bhavesh1129/orphan_support-php/main/assets/img/fork.png"/>
+  </a>
+ 
+* This will create a copy of this repository in your account.
+
+### 2. Clone the repository 🏁
+ 
+* Now clone the forked repository to your machine. Go to your GitHub account, open the forked repository, click on the code button and then click the _copy to clipboard_ icon.
+
+* After cloning the repository, please read and understand what the existing code or document is meant for, before overwriting it with your changes. If you're unsure about any part, feel free to ask it in discussions, and we'd be happy to help.
+<p align="center">
+    <img src="https://github.com/bhavesh1129/Youtube-Dashboard/blob/master/Contributing%20File%20Images/clone.png">
+  </a>
+ 
+* Open a terminal and run the following git command:
+
+```
+git clone "https://github.com/bhavesh1129/Youtube-Dashboard.git"
+```
+
+### 3. Navigate to the project directory.⚓
+
+* Change to the repository directory on your computer (if you are not already there):
+
+```
+cd Youtube-Dashboard
+```
+
+<p align="center">
+    <img src="https://github.com/bhavesh1129/Youtube-Dashboard/blob/master/Contributing%20File%20Images/cd.PNG">
+  </a>
+
+### 4. Add a reference to the original repository.:ledger:
+
+```
+git remote add upstream https://github.com/bhavesh1129/Youtube-Dashboard.git (URL of the repository)
+```
+
+<p align="center">
+    <img src="https://github.com/bhavesh1129/Youtube-Dashboard/blob/master/Contributing%20File%20Images/upstream.PNG">
+  </a>
+  
+### 5. See latest changes to the repository using following command::arrow_left:
+
+```
+git remote -v
+```
+
+<p align="center">
+    <img src="https://github.com/bhavesh1129/Youtube-Dashboard/blob/master/Contributing%20File%20Images/remote.PNG">
+  </a>
+  
+### 6. Now create a branch using::dna:
+
+```
+git checkout -b <your-new-branch-name>
+```
+
+<p align="center">
+    <img src="https://github.com/bhavesh1129/Youtube-Dashboard/blob/master/Contributing%20File%20Images/checkout.PNG">
+  </a>
+  
+### 7. Take a pull from the upstream repository to your master branch to keep it at par with the main project.:arrow_up:
+
+```
+git pull upstream master
+```
+
+<p align="center">
+    <img src="https://github.com/bhavesh1129/Youtube-Dashboard/blob/master/Contributing%20File%20Images/%C3%BApstrea.PNG">
+  </a>
+  
+
+### 8. Make necessary changes🚏
+
+* Do the necessary changes.
+
+* If you go to the project directory and execute the command `git status`, you'll see there are changes.
+
+* Add those changes to the branch you just created using the `git add` command:
+```
+git add .
+```
+<p align="center">
+    <img src="https://github.com/bhavesh1129/Youtube-Dashboard/blob/master/Contributing%20File%20Images/add.PNG">
+  </a>
+
+
+### 9. Now Commit those changes::fountain_pen:
+
+```
+git commit -m "(Add your message here)"
+```
+<p align="center">
+    <img src="https://github.com/bhavesh1129/Youtube-Dashboard/blob/master/Contributing%20File%20Images/commit.PNG">
+  </a>
+
+### 10. Push changes to GitHub 🪂
+
+* Push your changes using the command `git push`:
+
+<p align="center">
+    <img src="https://github.com/bhavesh1129/Youtube-Dashboard/blob/master/Contributing%20File%20Images/push.PNG">
+  </a>
+
+```
+git push origin <branch-name>
+```
+
+   replacing `<branch-name>` with the name of the branch you created earlier.
+
+### 11. Submit your changes for review 🚩
+
+* If you go to your repository on GitHub, you'll see a `Compare & pull request` button. Click on that button.
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/bhavesh1129/orphan_support-php/main/assets/img/compare.png">
+  </a>
+
+* Now submit the pull request.
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/bhavesh1129/orphan_support-php/main/assets/img/pullrequest.png">
+  </a>
+
+* Soon we will be merging all your changes into the master branch of this project. You will get a notification email once the changes have been merged.
+---
+## Future Scope of this Project::thinking::rainbow:
+* Creating option of sign up in Youtube Account
+* Viewing statistics of our own history
+* Adding feature of a graphical representation of any channel's monthly/weekly views
+
+### :ribbon: **Please go through the following essential steps for successfully submitting a Pull Request here:** :rocket:
+
+1. Star :star: (Optional, will help you stay up-to-date about the later changes in the base repository) and Fork this repository. :checkered_flag:
+
+2. Clone it :globe_with_meridians: using command `git clone <Your_Forked_Repo_URL_Here>` in your CLI. This will download and save a folder for your existing repository, locally in your machine.
+
+3. Switch to a branch using `git checkout -b <branchName>`, in which you are required to work (usually it is 'main' or 'master', but for our cases, it'll be "dev_username". In place of username, mention your GitHub username). Remember, do not directly checkout from 'master' branch of your forked repository.
+
+4. Check existing files, and make your desired updations.
+
+5. Open a command prompt/terminal :man_technologist: in the same directory and enter `git add .` or `git add -A`. This adds all the files for tracking and will be including them in the next commit.
+
+6. Commit your changes :memo: with `git commit -m "<Your One-Liner Commit Message>"`. In place of message, put a valuable and meaningful message so that it is easier for us to understand the changes you have done. This commits your changes locally.
+
+7. Use `git pull -u` or `git pull --set-upstream origin <branchName>` (The `-u` or `--set-upstream` flag only needs to be used in the first time. For later use, `git pull` can be used without any additional flags). This pulls any further changes from the server and ensures that the local branch is again up-to-date with the remote server. 
+
+8. Push your changes :arrow_up: to remote server using `git push` or `git push origin <branchName>`. This pushes your changes to the repository.
+
+After following these steps in Git CLI (in order), you'll need to go to your GitHub repository in the website to initiate a new Pull Request. Now create a pull request by comparing 'dev_username' branch of your forked repository with 'master' branch of this upstream repository. :confetti_ball:
+
+***:trophy: After this, project leaders and mentors will review the changes and will merge your PR if they are found good, otherwise we will suggest the required changes.***
+
+### So, what are you waiting for? Begin contributing now! :fire: :rocket:
+
+#### All the Best!🥇
+
