@@ -9,6 +9,34 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" type="text/css">
+		<script src="//code.jquery.com/jquery-2.1.4.js" type="text/javascript"></script>
+		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js" type="text/javascript"></script>
+		<script>
+		  jQuery(function() {
+		    jQuery( "#searchChannel" ).autocomplete({
+		      source: function( request, response ) {
+		    	var sqValue = [];
+		        jQuery.ajax({
+			        type: "POST",
+			        url: "https://suggestqueries.google.com/complete/search?hl=en&ds=yt&client=youtube&hjson=t&cp=1",
+			        dataType: 'jsonp',
+			        data: jQuery.extend({
+			            q: request.term
+			        }, {  }),
+			        success: function(data){
+			        	console.log(data[1]);
+			           	obj = data[1];
+						jQuery.each( obj, function( key, value ) {
+							sqValue.push(value[0]);
+						});
+			           	response( sqValue);
+			        }
+			    });
+		      }
+		    });
+		  });
+    </script>
   </head>
   <body>
     <h2 class="text-center text-danger">Youtube Dashboard</h2>
@@ -19,7 +47,8 @@
     <form method="post" action="/searchChannel" class="search">
       <input
         type="text"
-        name="searchChannel"
+        name="searchChannel",
+        id="searchChannel"
         class="channel-name my-2"
         placeholder="Enter Channel Name"
       />
@@ -102,7 +131,6 @@
         <% }) %>
     <% } %>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="javascripts/index.js"></script>
   </body>
 </html>
