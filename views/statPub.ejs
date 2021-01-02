@@ -16,10 +16,6 @@
       rel="stylesheet"
       href="https://unpkg.com/simplebar@latest/dist/simplebar.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
   </head>
   <body>
     <main data-simplebar>
@@ -28,7 +24,7 @@
           <i class="fab fa-youtube"></i> YouTube Dashboard
         </div>
       </div>
-      <main class="animate__animated animate__backInLeft">
+      <main>
         <!-- <div class="main"> -->
         <form method="post" action="/searchChannel" class="search">
           <div class="search-input">
@@ -79,6 +75,33 @@
             </div>
           </div>
         </div>
+        <% } %>
+        <% if (subsCount=="" || videoCount=="" || viewCount=="") { %>
+          <% channels.forEach(channel => { %>
+            <div class="main">
+          <div class="channel-details">
+            <img
+              src="<%= channel.snippet.thumbnails.default.url  %> "
+              alt="channel thumbnail url"
+              class="channel-thumbnail"
+            />
+            <h1 class="channel-detail-name"><%= channel.snippet.title %></h1>
+          </div>
+          
+          <div class="channel-results">
+            <div class="subsCountHeading heading">
+              <i class="fas fa-users"></i> <%= channel.statistics.subscriberCount %> subscribers
+            </div>
+            <div class="videoCountHeading heading">
+              <i class="fab fa-youtube"></i> <%= channel.statistics.videoCount %> videos
+            </div>
+            <div class="viewCountHeading heading">
+              <i class="fas fa-eye"></i> <%= channel.statistics.viewCount %> views
+            </div>
+          </div>
+        </div>
+      </div>
+            <% }) %>
         <% } %>
       </main>
     </main>
