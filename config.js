@@ -1,10 +1,9 @@
-const port = 5000;
-const baseUrl = `http://localhost:${port}`;
-
-const keys = require("./keys.json");
+require('dotenv').config();
+const baseUrl = `http://localhost:${process.env.PORT}`;
+const keys = JSON.parse(process.env.OAUTH_CLIENT_KEYS);
 
 module.exports = {
-  port,
+  port: process.env.PORT,
   baseUrl,
   JWTsecret: "mysecret",
   oauth2Credentials: {
