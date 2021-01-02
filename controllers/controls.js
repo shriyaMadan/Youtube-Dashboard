@@ -206,8 +206,7 @@ exports.searchChannelPOST = function (req, res, next) {
       "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=" +
       numResults +
       "&q=" +
-      query +ay randomly ask any student to give their VIVA exam.
-      Marks of ViVA exam would be included in ASL & Internal Assessment.
+      query +
       "&pageToken=" +
       nextToken +
       "&type=channel&key=" +
