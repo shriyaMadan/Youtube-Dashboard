@@ -22,21 +22,20 @@ exports.statPubGET = function (req, res) {
   const service = google.youtube("v3");
   service.channels
     .list({ auth: oauth2client, mine: true, part: "snippet, statistics" })
-    .then((response) => {
-      // console.log(response);
-      return res.render("statPub", {
-        channels: response.data.items,
-        subsCount: "",
-        videoCount: "",
-        viewCount: "",
-      });
-    });
-  service.subscriptions.list({
-    auth: oauth2client,
-    mine: true,
-    part: "snippet,contentDetails",
-    maxResults: 50,
-  });
+    .then(
+      (response) => {
+        // console.log(response);
+        return res.render("statPub", {
+          channels: response.data.items,
+          subsCount: "",
+          videoCount: "",
+          viewCount: "",
+        });
+      },
+      (error) => {
+        res.redirect(303, "/");
+      }
+  )
   // res.render("statPub", { subsCount: "", videoCount: "", viewCount: "" });
 };
 
@@ -107,7 +106,7 @@ exports.homeGET = function (req, res) {
     access_type: "offline",
     scope: CONFIG.oauth2Credentials.scopes,
   });
-  return res.render("index", { loginLink });
+  return res.render("index", {loginLink});
 };
 
 exports.statPubPOST = function (req, res, next) {
