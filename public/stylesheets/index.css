@@ -8,6 +8,10 @@
   box-sizing: border-box;
 }
 
+*:focus {
+  outline: none;
+}
+
 body {
   background-color: #181818;
   font-family: "Poppins", sans-serif;
