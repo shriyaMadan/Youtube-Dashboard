@@ -12,15 +12,15 @@ PS: The application is under development, it will soon include more features and
 
 ---
 
-This project is deployed in *Heroku*.
+This project is deployed in _Heroku_.
 
 ---
 
 ## Future Scope of this Project:
-* Viewing statistics of our own history
-* Adding feature of a graphical representation of any channel's monthly/weekly views
-* See what features you get after reaching 'n' Subscribers!
 
+- Viewing statistics of our own history
+- Adding feature of a graphical representation of any channel's monthly/weekly views
+- See what features you get after reaching 'n' Subscribers!
 
 #### Kindly refer to future scopes for contribution
 
