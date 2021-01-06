@@ -56,7 +56,7 @@ git checkout -b <your_branch_name>
 
 **8.** Perform your desired changes to the code base.
 
-<p align="center"><img width=45% src="https://media.giphy.com/media/hrRJ41JB2zlgZiYcCw/giphy.gif"></p>
+<p align="center"><img  src="https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif" width=45%></p>
 
 **9.** Stage your changes .
 
