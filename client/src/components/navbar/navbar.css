@@ -63,3 +63,15 @@
   color: white;
   padding: 5px 7px;
 }
+
+@media only screen and (max-width: 960px) {
+  .nav-logo {
+    display: none;
+  }
+  .nav-options {
+    display: none;
+  }
+  .search {
+    width: 90%;
+  }
+}
