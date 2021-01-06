@@ -10,7 +10,7 @@ router.get("/publicStat/:channelID", controllers.publicStatChannelID_GET);
 
 router.get("/auth/oauth2/callback", controllers.authCallback);
 
-router.post("/statPub", controllers.statPubPOST);
+// router.post("/statPub", controllers.statPubPOST);
 
 router.post("/searchChannel", controllers.searchChannelPOST);
 
