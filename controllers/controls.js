@@ -156,7 +156,7 @@ exports.searchChannelPOST = function (req, res, next) {
     axios
       .get(url)
       .then(function (response) {
-        res.send(response.data.items[0].statistics);
+        // res.send(response.data.items[0].statistics);
 
         var subsCount = formatNumber(
           response.data.items[0].statistics.subscriberCount
@@ -168,11 +168,15 @@ exports.searchChannelPOST = function (req, res, next) {
         var videoCount = formatNumber(
           response.data.items[0].statistics.videoCount
         );
-
+        var channelName = response.data.items[0].snippet.title;
+        var channelThumbnailURL =
+          response.data.items[0].snippet.thumbnails.default.url;
         res.render("statPub", {
           subsCount: subsCount,
           videoCount: videoCount,
           viewCount: viewCount,
+          channelName,
+          channelThumbnailURL,
         });
       })
       .catch(function (error) {
