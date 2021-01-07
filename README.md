@@ -4,7 +4,8 @@
 
 ---
 
-##About🤔💭:
+## About🤔💭:
+
 This dashboard displays basic information about the channel. The information includes number of subscribers, total views, total videos. You can either search by Channel-name OR by Channel-URL.
 
 PS: The application is under development, it will soon include more features and interesting information.
@@ -21,7 +22,7 @@ PS: The application is under development, it will soon include more features and
 
 ---
 
-##Contribution Guidelines
+## Contribution Guidelines
 
 Checkout the contribution guidelines <a href="https://github.com/shriyaMadan/Youtube-Dashboard/blob/master/CONTRIBUTING.md">here.</a>
 
@@ -29,7 +30,7 @@ Checkout the contribution guidelines <a href="https://github.com/shriyaMadan/You
 
 ---
 
-##Code of Conduct
+## Code of Conduct
 
 Checkout the code of conduct <a href="https://github.com/shriyaMadan/Youtube-Dashboard/blob/master/CODE_OF_CONDUCT.md">here.</a>
 
