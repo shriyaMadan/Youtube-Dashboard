@@ -1,9 +1,7 @@
 import React from "react";
 
+import "./dashboard.css";
+
 export const DashboardPage = () => {
-  return (
-    <div className="dashboard-page">
-      <h1>Dashboard Page component</h1>
-    </div>
-  );
+  return <div className="dashboard-page"></div>;
 };
