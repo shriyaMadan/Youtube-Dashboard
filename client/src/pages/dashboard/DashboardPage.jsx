@@ -1,13 +1,7 @@
 import React from "react";
-import { Card } from "../../components/card/Card";
+
+import "./dashboard.css";
 
 export const DashboardPage = () => {
-  return (
-    <div className="dashboard-page">
-      <div className="card-container">
-        <Card />
-        <Card />
-      </div>
-    </div>
-  );
+  return <div className="dashboard-page"></div>;
 };

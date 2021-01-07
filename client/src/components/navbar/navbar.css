@@ -39,9 +39,9 @@
 }
 
 .nav-options {
-  width: 20%;
+  width: 30%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -50,6 +50,7 @@
   color: rgb(32, 32, 32);
   font-family: "Poppins", sans-serif;
   cursor: pointer;
+  font-size: 100%;
 }
 
 .active {
