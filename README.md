@@ -54,4 +54,8 @@ This project is deployed in *Heroku*.
 
 ---
 
+Feel free to join us on [here] ( https://discord.gg/UhZGbDpw8G)✨ Hope you have a great time there!😄
+
+---
+
 Feel free to contribute :smile:
