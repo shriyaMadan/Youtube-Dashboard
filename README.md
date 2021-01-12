@@ -1,4 +1,5 @@
 # Youtube-Dashboard
+<img src="https://img.shields.io/github/forks/shriyaMadan/Youtube-Dashboard?label=Fork&style=social" alt="Fork">
 
 This dashboard displays basic information about the channel. The information includes number of subscribers, total views, total videos. You can either search by Channel-name OR by Channel-URL.
 
