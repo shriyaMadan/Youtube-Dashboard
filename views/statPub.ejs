@@ -116,7 +116,63 @@
             />
             <h1 class="channel-detail-name"><%= channel.snippet.title %></h1>
           </div>
-          
+          <div class="message">
+            <% if (channel.statistics.subscriberCount == 0) { %>
+             Start your journey today 
+            <% } %>
+            <% if (channel.statistics.subscriberCount == 100) { %>
+             Yipee you achieved 100 subs
+            <% } %>
+            <% if (channel.statistics.subscriberCount == 1000) { %>
+             Yipee you achieved the 1k milestone
+            <% } %>
+            <% if (channel.statistics.subscriberCount == 10000) { %>
+              Yipee you achieved the 10k milestone
+            <% } %>
+            <% if (channel.statistics.subscriberCount == 50000) { %>
+              Yipee you achieved the 50k milestone
+            <% } %>
+            <% if (channel.statistics.subscriberCount == 100000) { %>
+              Yipee you achieved the 100k milestone
+            <% } %>
+            <% if (channel.statistics.subscriberCount == 500000) { %>
+              Yipee you achieved the 500k milestone
+            <% } %>
+            <% if (channel.statistics.subscriberCount == 1000000) { %>
+              Yipee you achieved the 1M milestone
+            <% } %>
+            <% if (channel.statistics.subscriberCount == 100000000) { %>
+              Yipee you achieved the 10M milestone
+            <% } %>
+           <% if (channel.statistics.subscriberCount > 0 && channel.statistics.subscriberCount < 100) { %>
+            Road to first 100 subs
+           <% } %>
+           <% if (channel.statistics.subscriberCount > 100 && channel.statistics.subscriberCount < 1000) { %>
+            Road to first 1000 subs
+           <% } %>
+           <% if (channel.statistics.subscriberCount > 1000 && channel.statistics.subscriberCount < 10000) { %>
+            Road to first 10k subs
+           <% } %>
+           <% if (channel.statistics.subscriberCount > 10000 && channel.statistics.subscriberCount < 50000) { %>
+            Road to first 50k subs
+           <% } %>
+           <% if (channel.statistics.subscriberCount > 50000 && channel.statistics.subscriberCount < 100000) { %>
+            Road to first 100k subs
+           <% } %>
+           <% if (channel.statistics.subscriberCount > 100000 && channel.statistics.subscriberCount < 500000) { %>
+            Road to first 500k subs
+           <% } %>
+           <% if (channel.statistics.subscriberCount > 500000 && channel.statistics.subscriberCount < 1000000) { %>
+            Road to first 1M subs
+           <% } %>
+           <% if (channel.statistics.subscriberCount > 1000000 && channel.statistics.subscriberCount < 10000000) { %>
+            Road to first 10M subs
+           <% } %>
+           <% if (channel.statistics.subscriberCount > 10000000 ) { %>
+            Even sky can not limit you!
+           <% } %>
+             
+          </div>
           <div class="channel-results">
             <div class="subsCountHeading heading">
               <i class="fas fa-users"></i> <%= channel.statistics.subscriberCount %> subscribers
