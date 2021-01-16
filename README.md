@@ -26,9 +26,16 @@ Checkout the code of conduct <a href="https://github.com/shriyaMadan/Youtube-Das
 
 
 
-`This project is deployed in _Heroku_.`
+`This project is deployed in _Heroku_`
 
-
+## Tech-stack 🖥
+### `Front-end`
+- HTML
+- CSS
+- Bootstrap
+- Javascript
+### `Back-end`
+- Express.js
 ## Future Scope of this Project 💥
 
 - Viewing statistics of our own history
@@ -45,9 +52,22 @@ Hop in to our [discord]( https://discord.gg/UhZGbDpw8G) server to discuss with u
 
 Checkout our [wiki](https://github.com/shriyaMadan/Youtube-Dashboard/wiki) to know how you should frame a pull request before making one.
 
-## Open-source Programs 👩‍💻
+## Open-source Programs We are a part of 👾
 
 ### `DWoC(Devscript Winter of Code)`
-Winter of Code is an open-source program envisioned by DevScript that helps understand the paradigm of Open Source contribution. It aims to bring students into the world of open source development and see the power of unified problem solving in real time.
-<img src="https://devscript.tech/woc/img/WOC-logo.png" width="30%">
+<div style="display: flex; align-items: center; justify-content: space-between;">
+<p>
+Winter of Code is an open-source program envisioned by DevScript that helps understand the paradigm of Open Source contribution. It aims to bring students into the world of open source development and see the power of unified problem solving in real time.</p>
+<img src="https://devscript.tech/woc/img/WOC-logo.png" width="14%"><br>
+</div>
 
+`Contributions to this project are currently welcomed through DWOC`
+
+## Project Maintainer / Mentor 👩‍💻
+
+<img src="https://avatars2.githubusercontent.com/u/38863530?s=400&u=229ce51f576a28c7517d87f9a3d494cd7492cb05&v=4" width="14%"><br>
+<p style="width:14%; text-align:center"><a href="https://github.com/shriyaMadan">Shriya Madan</a></p>
+
+
+##  `Feel Free to contribute to this project 🙌`
+<br><br>
