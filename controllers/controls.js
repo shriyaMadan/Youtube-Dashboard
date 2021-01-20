@@ -1,52 +1,46 @@
-require("dotenv").config();
+require("dotenv").config()
 const key = process.env.API_KEY;
 const axios = require("axios").default;
 const CONFIG = require("../config");
 const google = require("googleapis").google;
 const jwt = require("jsonwebtoken");
-
 const Oauth2 = google.auth.OAuth2;
 
-exports.statPubGET = function (req, res) {
+const oauth2client = new Oauth2(
+  CONFIG.oauth2Credentials.client_id,
+  CONFIG.oauth2Credentials.client_secret,
+  CONFIG.oauth2Credentials.redirect_uris[0]
+);
+
+function generateLoginLink(config, access_type){
+  const loginLink = oauth2client.generateAuthUrl({
+    access_type,
+    scope: CONFIG.oauth2Credentials.scopes,
+  });
+  return loginLink;
+}
+
+exports.ownChannel = (req, res, next) => {
   if (!req.cookies.jwt) {
     return res.redirect("/");
   }
-  const oauth2client = new Oauth2(
-    CONFIG.oauth2Credentials.client_id,
-    CONFIG.oauth2Credentials.client_secret,
-    CONFIG.oauth2Credentials.redirect_uris[0]
-  );
-
   oauth2client.credentials = jwt.verify(req.cookies.jwt, CONFIG.JWTsecret);
-  //   call the youtube api
   const service = google.youtube("v3");
   service.channels
     .list({ auth: oauth2client, mine: true, part: "snippet, statistics" })
     .then((response) => {
       // console.log(response);
       return res.render("statPub", {
+        loginLink: "",
         channels: response.data.items,
         subsCount: "",
         videoCount: "",
         viewCount: "",
       });
     });
-  service.subscriptions.list({
-    auth: oauth2client,
-    mine: true,
-    part: "snippet,contentDetails",
-    maxResults: 50,
-  });
-  // res.render("statPub", { subsCount: "", videoCount: "", viewCount: "" });
-};
+}
 
 exports.authCallback = (req, res) => {
-  const oauth2client = new Oauth2(
-    CONFIG.oauth2Credentials.client_id,
-    CONFIG.oauth2Credentials.client_secret,
-    CONFIG.oauth2Credentials.redirect_uris[0]
-  );
-
   if (req.query.error) {
     //   user permission not granted
     return res.redirect("/");
@@ -55,70 +49,31 @@ exports.authCallback = (req, res) => {
     if (err) {
       return res.redirect("/");
     }
-    res.cookie("jwt", jwt.sign(token, CONFIG.JWTsecret));
-    return res.redirect("/statPub");
+    res.cookie("jwt", jwt.sign(token, CONFIG.JWTsecret, { expiresIn: 60 * 3 }));
+    return res.redirect("/ownChannel");
   });
 };
 
-exports.publicStatChannelID_GET = function (req, res, next) {
-  var channelID = req.params.channelID;
-  var url =
-    "https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&id=" +
-    channelID +
-    "&key=" +
-    key;
-  axios
-    .get(url)
-    .then(function (response) {
-      // res.send(response.data.items[0]);
-      var channelName = response.data.items[0].snippet.title;
-      var channelThumbnailURL =
-        response.data.items[0].snippet.thumbnails.default.url;
-      var subsCount = formatNumber(
-        response.data.items[0].statistics.subscriberCount
-      );
-      var viewCount = formatNumber(response.data.items[0].statistics.viewCount);
-      //var subsHidden = response.data.items[0].statistics.hiddenSubscriberCount;
-      var videoCount = formatNumber(
-        response.data.items[0].statistics.videoCount
-      );
-      res.render("statPub", {
-        subsCount,
-        videoCount,
-        viewCount,
-        channelName,
-        channelThumbnailURL,
-      });
-    })
-    .catch(function (error) {
-      console.log(error);
-      res.send(error);
-    })
-    .then(function () {});
-};
+exports.statPubGET = (req, res, next) => {
+  if(!req.cookies.jwt) {
+    res.render('statPub',{channels:[], loginLink: generateLoginLink(CONFIG,"offline"),
+    channelThumbnailURL:"",channelName:"", subsCount:"", videoCount:"",viewCount: ""})
+  } else {
+    res.render('statPub', {channels:[], loginLink: "", channelThumbnailURL:"",
+    channelName:"", subsCount:"", videoCount:"",viewCount: ""})
+  }
+}
 
-exports.homeGET = function (req, res) {
-  const oauth2client = new Oauth2(
-    CONFIG.oauth2Credentials.client_id,
-    CONFIG.oauth2Credentials.client_secret,
-    CONFIG.oauth2Credentials.redirect_uris[0]
-  );
-  const loginLink = oauth2client.generateAuthUrl({
-    access_type: "offline",
-    scope: CONFIG.oauth2Credentials.scopes,
-  });
-  return res.render("index", { loginLink });
-};
+exports.logout = (req, res, next) => {
+  res.clearCookie("jwt");
+  res.redirect('statPub');
+}
 
-// exports.statPubPOST = function (req, res, next) {
-
-// };
-
-exports.searchChannelPOST = function (req, res, next) {
+exports.searchChannelPOST = (req, res, next) => {
   var query = req.body.searchChannel;
   const urlRegex = /youtube.com/g;
-  var urlTest = urlRegex.test(query);
-  if (urlTest) {
+
+  if ( urlRegex.test(query) ) {
     var url = req.body.searchChannel;
     var param = "";
     var typeOfParam = "";
@@ -149,9 +104,7 @@ exports.searchChannelPOST = function (req, res, next) {
     if (typeOfParam == "Id") {
       url =
         "https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&id=" +
-        param +
-        "&key=" +
-        key;
+        param + "&key=" + key;
     }
     axios
       .get(url)
@@ -172,6 +125,8 @@ exports.searchChannelPOST = function (req, res, next) {
         var channelThumbnailURL =
           response.data.items[0].snippet.thumbnails.default.url;
         res.render("statPub", {
+          loginLink: (req.cookies.jwt? "" : generateLoginLink(CONFIG, "offline")),
+          channels: false,
           subsCount: subsCount,
           videoCount: videoCount,
           viewCount: viewCount,
@@ -241,6 +196,42 @@ exports.searchChannelPOST = function (req, res, next) {
       })
       .then(function () {});
   }
+};
+
+exports.publicStatChannelID_GET = function (req, res, next) {
+  var channelID = req.params.channelID;
+  var url =
+    "https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&id=" +
+    channelID +"&key=" +key;
+  axios
+    .get(url)
+    .then(function (response) {
+      // res.send(response.data.items[0]);
+      var channelName = response.data.items[0].snippet.title;
+      var channelThumbnailURL =
+        response.data.items[0].snippet.thumbnails.default.url;
+      var subsCount = formatNumber(
+        response.data.items[0].statistics.subscriberCount
+      );
+      var viewCount = formatNumber(response.data.items[0].statistics.viewCount);
+      //var subsHidden = response.data.items[0].statistics.hiddenSubscriberCount;
+      var videoCount = formatNumber(
+        response.data.items[0].statistics.videoCount
+      );
+      res.render("statPub", {
+        loginLink: (req.cookies.jwt? "" : generateLoginLink(CONFIG, "offline")),
+        subsCount,
+        videoCount,
+        viewCount,
+        channelName,
+        channelThumbnailURL,
+      });
+    })
+    .catch(function (error) {
+      console.log(error);
+      res.send(error);
+    })
+    .then(function () {});
 };
 
 function formatNumber(num) {

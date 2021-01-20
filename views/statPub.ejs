@@ -51,6 +51,13 @@
         <div class="hero-title">
           <i class="fab fa-youtube"></i> YouTube Dashboard
         </div>
+        <% if (!!loginLink) {%>
+        <a href="<%= loginLink %>" class="nav-link">Login</a>
+        <% } else { %>
+        <a href="/logout" class="nav-link">Logout</a>
+        <a href="/ownChannel" class="nav-link">My Channel</a>
+        <% } %>
+        <!-- Add a logout button -->
       </div>
       <main>
         <!-- <div class="main"> -->
@@ -104,8 +111,7 @@
             </div>
           </div>
         </div>
-        <% } %>
-        <% if (subsCount=="" || videoCount=="" || viewCount=="") { %>
+        <% } else if (!!channels) { %>
           <% channels.forEach(channel => { %>
             <div class="main">
           <div class="channel-details">
@@ -116,7 +122,7 @@
             />
             <h1 class="channel-detail-name"><%= channel.snippet.title %></h1>
           </div>
-          
+
           <div class="channel-results">
             <div class="subsCountHeading heading">
               <i class="fas fa-users"></i> <%= channel.statistics.subscriberCount %> subscribers
@@ -136,15 +142,15 @@
           <a href="https://www.iubenda.com/privacy-policy/40442424/legal" class="iubenda-black iubenda-embed"
             title="Privacy Policy ">Privacy Policy</a>
         </footer>
-        
+
       </main>
-      
+
     </main>
- 
+
   <script type="text/javascript">
-    (function (w, d) { var loader = function () { var s = d.createElement("script"), 
-    tag = d.getElementsByTagName("script")[0]; s.src = "https://cdn.iubenda.com/iubenda.js"; 
-    tag.parentNode.insertBefore(s, tag); }; if (w.addEventListener) { w.addEventListener("load", loader, false); } 
+    (function (w, d) { var loader = function () { var s = d.createElement("script"),
+    tag = d.getElementsByTagName("script")[0]; s.src = "https://cdn.iubenda.com/iubenda.js";
+    tag.parentNode.insertBefore(s, tag); }; if (w.addEventListener) { w.addEventListener("load", loader, false); }
     else if (w.attachEvent) { w.attachEvent("onload", loader); } else { w.onload = loader; } })(window, document);
   </script>
     <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
