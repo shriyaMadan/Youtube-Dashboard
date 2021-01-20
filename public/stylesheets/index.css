@@ -33,6 +33,18 @@ body {
   width: 100%;
 }
 
+.nav-link {
+  text-decoration: none;
+  padding: 3px 7px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  border: white solid 2px;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
 .main {
   background-color: rgba(255, 255, 255, 0.075);
   width: 80%;
