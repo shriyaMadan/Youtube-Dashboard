@@ -1,0 +1,11 @@
+body {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin: auto;
+}
+
+.channel-thumbnail {
+  width: 100%;
+  height: auto;
+}
