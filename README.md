@@ -38,11 +38,12 @@ Checkout the code of conduct <a href="https://github.com/shriyaMadan/Youtube-Das
 - Express.js
 ## Future Scope of this Project 💥
 
-- Viewing statistics of our own history
-- Adding feature of a graphical representation of any channel's monthly/weekly views
+- Enhance UI
+- Make it shareable in Social Media
 - See what features you get after reaching 'n' Subscribers!
 - Improve SEO of your channel by keyword suggestion
 - Censor words out of your comment sections
+- Using React in UI
 
 ## Channels 🔗
 
