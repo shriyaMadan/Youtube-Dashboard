@@ -33,12 +33,21 @@ body {
   width: 100%;
 }
 
+
+@media screen and (max-width: 420px){
+  .navbar{
+  padding: 4rem 0 4rem 0;
+  }
+  
+}
+
 .nav-link {
   text-decoration: none;
   padding: 3px 7px;
   color: white;
   font-family: "Poppins", sans-serif;
   border: white solid 2px;
+  margin-right: 3rem;
 }
 
 .nav-link:hover {
@@ -102,8 +111,11 @@ body {
   background: none;
   border: none;
   color: white;
+  
 }
-
+.btn{
+  margin-left: 0.6rem;
+}
 .custom-select option {
   background: none;
   color: black;
