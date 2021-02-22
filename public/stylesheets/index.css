@@ -26,11 +26,23 @@ body {
 
 .navbar {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-end;
   height: 10vh;
   background-color: #202020;
   width: 100%;
+}
+
+
+@media screen and (max-width: 420px){
+  .navbar{
+  padding: 4rem 0 4rem 0;
+  }
+  .hero-title{
+    font-size: x-large;
+    padding: 0 0 0 2rem;
+  }
+
 }
 
 .nav-link {
@@ -39,6 +51,7 @@ body {
   color: white;
   font-family: "Poppins", sans-serif;
   border: white solid 2px;
+
 }
 
 .nav-link:hover {
@@ -102,8 +115,11 @@ body {
   background: none;
   border: none;
   color: white;
+  
 }
-
+.btn{
+  margin-left: 0.6rem;
+}
 .custom-select option {
   background: none;
   color: black;
