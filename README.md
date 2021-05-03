@@ -1,52 +1,74 @@
-# Youtube-Dashboard
+<h1 style="text-align:center; font-size:3rem">Youtube-Dashboard<h1>
+
+## About 💭:
 
 This dashboard displays basic information about the channel. The information includes number of subscribers, total views, total videos. You can either search by Channel-name OR by Channel-URL.
 
-PS: The application is under development, it will soon include more features and interesting information.
+PS: The application is under development, it will soon include more features and interesting information. 
+Login is working only for Test Users added by maintainer, it might take time to get verified by Google for Production Level.
 
-#### To run this project you will need to generate your own Youtube API KEY.
+### Run on Localhost 💻
 
-### Creation of Youtube API KEY:
+#### ```To run this project you will need to generate your own Youtube API KEY.```
 
-1. Follow this link https://console.developers.google.com/project and click on CREATE PROJECT. Make sure you are logged in into your Google Developers Account.
+- Refer [this Guide](Run_Locally.md) to follow up!!
 
-2. Fill in the name you want to assign to your project.
 
-3. On the top left corner, click the Google APIs link and then follow the link option dubbed “YouTube DATA API” below the YouTube API’s icon.
+## Contribution Guidelines 👇
 
-4. Now select the “ENABLE” button which manifests after you click the YouTube DATA API link.
+Checkout the contribution guidelines <a href="https://github.com/shriyaMadan/Youtube-Dashboard/blob/master/CONTRIBUTING.md">here.</a>
 
-5. Now click the button on the far right with the “Go to Credentials” phrase.
 
-6. On the first select option displayed on this page, choose the YouTube Data API v3, and then the Web server (such as node js. Tomcat) on the second option. For the third option, choose public data. Lastly, click the button with “what credentials do I need”.
+## Code of Conduct 👇
 
-7. After hitting the “What credentials do I need” button, Google will create your new project, and you can now copy your API Key from this page.
+Checkout the code of conduct <a href="https://github.com/shriyaMadan/Youtube-Dashboard/blob/master/CODE_OF_CONDUCT.md">here.</a>
 
-Now you’re ready to use the YouTube API!
 
-### Using Youtube API key to run this project:
 
-1. Create a file named ".env".
-2. Create a variable named "API_KEY".
-3. Insert the key you generated in this variable.
 
-<pre> API_KEY = 'Your API key here' </pre>
+`This project is deployed in _Heroku_`
 
-4. Don't forget to save the file.
+## Tech-stack 🖥
+### `Front-end`
+- HTML
+- CSS
+- Bootstrap
+- Javascript
+### `Back-end`
+- Express.js
+## Future Scope of this Project 💥
 
----
+- Enhance UI
+- Make it shareable in Social Media
+- See what features you get after reaching 'n' Subscribers!
+- Improve SEO of your channel by keyword suggestion
+- Censor words out of your comment sections
+- Using React in UI
 
-This project is deployed in *Heroku*.
+## Channels 🔗
 
----
+Hop in to our [discord]( https://discord.gg/UhZGbDpw8G) server to discuss with us.
 
-## Future Scope of this Project:
-* Creating option of sign up in Youtube Account
-* Viewing statistics of our own history
-* Adding feature of a graphical representation of any channel's monthly/weekly views
+## Wiki ✅
 
-#### Kindly refer to future scopes for contribution
+Checkout our [wiki](https://github.com/shriyaMadan/Youtube-Dashboard/wiki) to know how you should frame a pull request before making one.
 
----
+## Open-source Programs We are a part of 👾
 
-Feel free to contribute :smile:
+### `DWoC(Devscript Winter of Code)`
+<div style="display: flex; align-items: center; justify-content: space-between;">
+<p>
+Winter of Code is an open-source program envisioned by DevScript that helps understand the paradigm of Open Source contribution. It aims to bring students into the world of open source development and see the power of unified problem solving in real time.</p>
+<img src="https://devscript.tech/woc/img/WOC-logo.png" width="14%"><br>
+</div>
+
+`Contributions to this project are currently welcomed through DWOC`
+
+## Project Maintainer / Mentor 👩‍💻
+
+<img src="https://avatars2.githubusercontent.com/u/38863530?s=400&u=229ce51f576a28c7517d87f9a3d494cd7492cb05&v=4" width="14%"><br>
+<p style="width:14%; text-align:center"><a href="https://github.com/shriyaMadan">Shriya Madan</a></p>
+
+
+##  `Feel Free to contribute to this project 🙌`
+<br><br>

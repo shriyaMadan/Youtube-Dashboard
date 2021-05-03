@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+/* css reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  background-color: #181818;
+  font-family: "Poppins", sans-serif;
+}
+.hero-title {
+  font-size: xx-large;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  text-align: center;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 10vh;
+  background-color: #202020;
+  width: 100%;
+}
+
+.nav-link {
+  text-decoration: none;
+  padding: 3px 7px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  border: white solid 2px;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.main {
+  background-color: rgba(255, 255, 255, 0.075);
+  width: 80%;
+  margin: 5% 10%;
+  padding: 3% 3%;
+  border-radius: 5px;
+  color: white;
+}
+
+.channel-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.channel-results {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.search-input {
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+  border-radius: 25px;
+  padding: 5px 15px;
+  height: 45px;
+}
+
+.search-input input {
+  color: white;
+  width: 95%;
+  background: none;
+  border: none;
+  font-size: 15px;
+  padding: 2px;
+}
+
+.search-input button {
+  width: 5%;
+  background: none;
+  border: none;
+  color: white;
+}
+
+.custom-select {
+  background: none;
+  border: none;
+  color: white;
+}
+
+.custom-select option {
+  background: none;
+  color: black;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .channel-results {
+    flex-direction: column;
+  }
+}
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
