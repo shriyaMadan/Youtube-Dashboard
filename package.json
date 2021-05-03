@@ -18,5 +18,8 @@
     "http-errors": "~1.6.3",
     "jsonwebtoken": "^8.5.1",
     "nodemon": "^2.0.4"
+  },
+  "devDependencies": {
+    "eslint": "^7.25.0"
   }
 }
